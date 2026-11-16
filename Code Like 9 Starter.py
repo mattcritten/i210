@@ -1,0 +1,29 @@
+import random
+
+# Section 1 - Add to the function to print a hand, card by card
+def create_cup(amount):
+    return [random.choice(list(types_of_coins.keys())) for _ in range(amount)]
+
+# counts how many coins of each type
+def count_coins(coin_list):   
+    return [[coin, coin_list.count(coin)] for coin in types_of_coins.keys()]
+
+# print information about counted coins
+def filter_change(counted_coins):
+    change = [[coin[0], round(coin[1] * types_of_coins[coin[0]], 2)] for coin in counted_coins]
+    return [[coin[0], '$' + "{:.2f}".format(coin[1])] for coin in change if coin[1] >= 5]
+
+# Main
+# Set up
+types_of_coins = {"penny": 0.01, "nickel": 0.05, "dime": 0.1,
+         "quarter": 0.25, "half-dollar": 0.5, "dollar": 1}
+
+# Update this as you go!
+if __name__ == "__main__":
+    for i in range(3):
+        print("Cup", i + 1, ":")
+        change = create_cup(500)
+        counted = count_coins(change)
+        print(filter_change(counted))
+
+

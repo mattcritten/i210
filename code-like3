@@ -1,0 +1,31 @@
+attendees = ["Amari McIntyre", "Ray Lowe", "Anna Hopkins", "Oaklynn Duran", "Flor Himenez"]
+speakers = ["Ray Lowe", "Flor Himenez"]
+
+print("The following people are attending the conference:")
+for i in attendees:
+    print(f"\t{i}")
+
+person = input("Please enter a person's name: ")
+
+if person in attendees and person in speakers:
+    print("That person is attending the conference and they are a speaker!")
+elif person in attendees:
+    print("That person is attending the conference.")
+else:
+    print("That person isn't currently on the conference list.")
+    add_personAttendees = input("Would you like to add them (y/n)? ")
+    if add_personAttendees == "y":
+        attendees.append(person)
+        print(f"{person} has been added to the attendees list.")
+        add_personSpeakers = input("Are they also a speaker (y/n)? ")
+        if add_personSpeakers == "y":
+            speakers.append(person)
+            print(f"{person} has been added to the speakers list.")
+    if len(attendees) == 6:
+        print("The conference is now full!")
+    else:
+        print("One more person could still attend.")
+         
+    
+
+
